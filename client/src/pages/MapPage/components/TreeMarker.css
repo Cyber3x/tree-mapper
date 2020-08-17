@@ -1,0 +1,28 @@
+.tree-img {
+  width: 200px;
+  height: 267px;
+  min-width: 4vh;
+  margin-top: 1vh;
+  object-fit: cover;
+}
+
+.leaflet-popup-content {
+  width: 200px;
+}
+
+.tree-popup p {
+  text-align: center;
+  margin: 1vh 0;
+}
+
+.tree-desc,
+.tree-plantedAt {
+  font-size: 14px;
+  color: #777777;
+}
+
+.tree-createdAt {
+  font-size: 12px;
+  font-weight: bolder;
+  color: #888
+}
