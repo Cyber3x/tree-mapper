@@ -1,22 +1,34 @@
 import React from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-// STYLES
-import './App.css';
+// BUMBAG
+import { Provider as BumbagProvider } from 'bumbag';
+
+// CUSTOM THEME
+import theme from './util/theme';
 
 // COMPONENTS
 import MapPage from './pages/MapPage/MapPage';
-import Footer from './components/Footer/Footer';
+import MyTrees from './pages/MyTrees/MyTrees';
+import Navbar from './components/Navbar/Navbar';
 
-axios.defaults.baseURL =
-  'https://europe-west3-treemapper-gfg.cloudfunctions.net/api';
+// axios.defaults.baseURL =
+//   'https://europe-west3-treemapper-gfg.cloudfunctions.net/api';
 
 const App = () => {
   return (
-    <>
-      <MapPage />
-      {/* <Footer /> */}
-    </>
+    <BumbagProvider theme={theme}>
+      <Router>
+        <Navbar />
+
+        <Switch>
+          <Route exact path="/" children={<MapPage />} />
+          <Route exact path="/my-trees" children={<MyTrees />} />
+          <Route path="/" children={<h1>404 not found</h1>} />
+        </Switch>
+      </Router>
+    </BumbagProvider>
   );
 };
 
