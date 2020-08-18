@@ -12,7 +12,7 @@ const isEmail = email => {
 };
 
 const isLocation = string => {
-  const regEx = /\[-?\d+\.?\d*, *-?\d+\.?\d*, *(-?\d+\.?\d*|null)\]/g;
+  const regEx = /\[-?\d+\.?\d*, *-?\d+\.?\d*]/g;
   if (!regEx.test(string)) {
     console.log('bad format');
     return false;

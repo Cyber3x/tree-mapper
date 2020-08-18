@@ -1,4 +1,4 @@
-const { db, storage } = require('../util/modules');
+const { db, storage } = require('../util/admin');
 
 const {
   validateNewTreeData,

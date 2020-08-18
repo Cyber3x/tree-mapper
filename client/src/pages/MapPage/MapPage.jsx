@@ -13,9 +13,9 @@ const MapPage = () => {
       .get('/trees')
       .then(res => {
         console.log(res.data);
-        // setMarkers(
-        //   res.data.map(tree => <Marker tree={tree} key={tree.treeId} />)
-        // );
+        setMarkers(
+          res.data.map(tree => <Marker tree={tree} key={tree.treeId} />)
+        );
       })
       .catch(err => console.error(err));
   }, []);

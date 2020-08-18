@@ -7,3 +7,4 @@ TODO.md
 .env
 
 backend/functions/util/config.js
+backend/functions/dev-firestore

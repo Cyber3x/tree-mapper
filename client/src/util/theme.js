@@ -13,6 +13,9 @@ const theme = {
         hover: {
           color: '#EFEA5A',
         },
+        active: {
+          color: '#EFEA5A',
+        },
       },
     },
   },

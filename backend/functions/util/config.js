@@ -1,5 +1,5 @@
 module.exports = {
-  apiKey: 'AIzaSyBT_GHH_8uqdfnpYg1DVbM7Wvbr52LsR5U',
+  apiKey: process.env.API_KEY,
   authDomain: 'treemapper-gfg.firebaseapp.com',
   databaseURL: 'https://treemapper-gfg.firebaseio.com',
   projectId: 'treemapper-gfg',

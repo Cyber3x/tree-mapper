@@ -1,4 +1,4 @@
-const { admin, db } = require('./modules');
+const { admin, db } = require('./admin');
 
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
