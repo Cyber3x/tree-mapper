@@ -12,9 +12,10 @@ const MapPage = () => {
     axios
       .get('/trees')
       .then(res => {
-        setMarkers(
-          res.data.map(tree => <Marker tree={tree} key={tree.treeId} />)
-        );
+        console.log(res.data);
+        // setMarkers(
+        //   res.data.map(tree => <Marker tree={tree} key={tree.treeId} />)
+        // );
       })
       .catch(err => console.error(err));
   }, []);
@@ -22,11 +23,11 @@ const MapPage = () => {
   return (
     <Map center={[46.1639, 16.8335]} zoom={12} zoomControl={false}>
       <TileLayer
-        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
       {markers}
-      <ZoomControl position='bottomright' />
+      <ZoomControl position="bottomright" />
     </Map>
   );
 };

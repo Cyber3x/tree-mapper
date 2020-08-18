@@ -13,9 +13,13 @@ import MapPage from './pages/MapPage/MapPage';
 import MyTrees from './pages/MyTrees/MyTrees';
 import Navbar from './components/Navbar/Navbar';
 
-// axios.defaults.baseURL =
-//   'https://europe-west3-treemapper-gfg.cloudfunctions.net/api';
-
+if (process.env.NODE_ENV === 'production') {
+  axios.defaults.baseURL =
+    'https://europe-west3-treemapper-gfg.cloudfunctions.net/api';
+} else {
+  axios.defaults.baseURL =
+    'http://localhost:5001/treemapper-gfg/europe-west3/api';
+}
 const App = () => {
   return (
     <BumbagProvider theme={theme}>
