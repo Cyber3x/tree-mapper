@@ -1,10 +1,4 @@
-const { db } = require('../util/admin');
-
-const firebaseConfig = require('../util/config');
-const firebase = require('firebase');
-
-firebase.initializeApp(firebaseConfig);
-
+const { db, auth } = require('../util/modules');
 const { validateSignupData, validateLoginData } = require('../util/validators');
 
 exports.signup = (req, res) => {
@@ -26,8 +20,7 @@ exports.signup = (req, res) => {
           .status(400)
           .json({ accessCode: "You don't have the right access code" });
       } else {
-        firebase
-          .auth()
+        auth
           .createUserWithEmailAndPassword(email, password)
           .then(data => {
             userId = data.user.uid;
@@ -62,8 +55,7 @@ exports.login = (req, res) => {
   const { valid, errors } = validateLoginData(req.body);
   if (!valid) return res.status(400).json(errors);
 
-  firebase
-    .auth()
+  auth
     .signInWithEmailAndPassword(email, password)
     .then(data => data.user.getIdToken())
     .then(token => res.json({ token }))

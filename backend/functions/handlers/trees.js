@@ -1,11 +1,9 @@
-const { db, admin } = require('../util/admin');
+const { db, storage } = require('../util/modules');
 
 const {
   validateNewTreeData,
   validateUpdateTreeData,
 } = require('../util/validators');
-
-const firebaseConfig = require('../util/config');
 
 exports.getTrees = (req, res) => {
   db.collection('trees')
@@ -65,8 +63,7 @@ exports.addTree = (req, res) => {
 
     newTreeData.location = JSON.parse(newTreeData.location);
     // upload image to storage
-    admin
-      .storage()
+    storage
       .bucket()
       .upload(imageToBeUploaded.filepath, {
         resumable: false,
@@ -77,7 +74,7 @@ exports.addTree = (req, res) => {
         },
       })
       .then(() => {
-        const imageUrl = `https://firebasestorage.googleapis.com/v0/b/${firebaseConfig.storageBucket}/o/${imageFileName}?alt=media`;
+        const imageUrl = `https://firebasestorage.googleapis.com/v0/b/treemapper-gfg.appspot.com/o/${imageFileName}?alt=media`;
         newTreeData.image = imageUrl;
         (newTreeData.createdBy = req.user.uid),
           (newTreeData.createdAt = new Date().toISOString());
