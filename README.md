@@ -1,7 +1,7 @@
 # TreeMapper
 **Website link**: [TreeMapper](https://treemapper-gfg.web.app/)
 
-This is a small website created for a school project! 
+A small website created for a school project where we can mark trees planted in the project! 
 
 ### Tech used:
 **Frontend**: [React](https://reactjs.org/), [React-Leaflet](https://react-leaflet.js.org/)
